@@ -1,5 +1,4 @@
 const express = require("express");
-const cors = require("cors");
 const http = require("http");
 const { Server } = require("socket.io");
 require("./db/connection")
@@ -8,14 +7,10 @@ require("./db/connection")
 const port = process.env.PORT
 
 const app = express()
-
-app.use(cors())
-
 const server = http.createServer(app);
 const io = new Server(server, { 
     cors: {
-      origin: 'https://rahbar11.github.io',
-      methods: ["GET", "POST"]
+      origin: 'https://rahbar11.github.io'
     }
 });
 
